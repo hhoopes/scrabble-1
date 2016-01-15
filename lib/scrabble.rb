@@ -1,6 +1,11 @@
 class Scrabble
   def score(word)
-    0
+    if word
+      word.chars.inject(0) do |memo, letter|
+        memo + point_values.fetch(letter.upcase)
+      end
+    else 0
+    end
   end
 
   def point_values
